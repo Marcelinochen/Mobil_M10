@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Project Mobil.sln"
+    "dotnet.defaultSolution": "Mobil_M10.sln"
 }

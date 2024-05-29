@@ -12,6 +12,7 @@ public class Dead_car : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Destroy(gameObject);
+        GameObject.Find("ScoreManager").GetComponent<ScoreManager>().GameOver();
     }
 
     void Update()

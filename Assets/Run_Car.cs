@@ -12,6 +12,7 @@ public class Run_Car : MonoBehaviour
     }
 
     void OnBecameInvisible(){
+        GameObject.Find("ScoreManager").GetComponent<ScoreManager>().Boost();
         Destroy(gameObject);
     }
 }
