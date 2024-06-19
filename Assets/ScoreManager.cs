@@ -7,10 +7,12 @@ public class ScoreManager : MonoBehaviour
 {
     bool ended = false;
     public int Score { get; private set; }
+    private int highScore;
     // Start is called before the first frame update
     void Start(){
         Score = 0;
         ended = false;
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
         DontDestroyOnLoad(gameObject);
     }
 
@@ -21,6 +23,13 @@ public class ScoreManager : MonoBehaviour
     }
 
     public void GameOver(){
+        if (Score > highScore)
+        {
+            highScore = Score;
+            // Simpan highscore ke PlayerPrefs
+            PlayerPrefs.SetInt("HighScore", highScore);
+            PlayerPrefs.Save();
+        }
         SceneManager.LoadScene("GameOver");
         ended = true;
     }
