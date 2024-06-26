@@ -8,12 +8,16 @@ public class ScoreManager : MonoBehaviour
     bool ended = false;
     public int Score { get; private set; }
     private int highScore;
+
+    private UpdateScoreText updateScoreText;
     // Start is called before the first frame update
     void Start(){
         Score = 0;
         ended = false;
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         DontDestroyOnLoad(gameObject);
+
+        updateScoreText = GameObject.Find("ScoreText").GetComponent<UpdateScoreText>();
     }
 
     public void Boost(){

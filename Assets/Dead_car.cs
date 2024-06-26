@@ -13,9 +13,14 @@ public class Dead_car : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        crashSound.Play();
-        Destroy(gameObject);
-        GameObject.Find("ScoreManager").GetComponent<ScoreManager>().GameOver();
+        healthControl.health -=1;
+        if(healthControl.health == 0)
+        {
+            crashSound.Play();
+            Destroy(gameObject);
+            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().GameOver();
+        }
+        
     }
 
     void Update()
